@@ -1,0 +1,1 @@
+import{j as e,ay as s}from"./index-BKUK2GJb.js";const r=()=>e.jsx("div",{className:"flex items-center justify-center h-screen",children:e.jsx(s,{size:"lg",className:"text-blue-500"})});export{r as L};

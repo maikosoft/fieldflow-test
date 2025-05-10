@@ -1,0 +1,1 @@
+import{a as e,h as l,j as s,aA as v}from"./index-BKUK2GJb.js";var d=e.forwardRef(function(a,i){var o,r;const t=l(),n=(r=(o=a.validationBehavior)!=null?o:t==null?void 0:t.validationBehavior)!=null?r:"native";return s.jsx(v,{...a,ref:i,validationBehavior:n})});export{d as F};
