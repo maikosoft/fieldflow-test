@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, ModalContent, ModalHeader, 
-    ModalBody, ModalFooter, Button, Form, Input } from '@heroui/react';
+    ModalBody, Button, Form, Input } from '@heroui/react';
 import { Id } from '../../convex/_generated/dataModel';
 import { useMutation } from 'convex/react';
 import { api } from "../../convex/_generated/api";

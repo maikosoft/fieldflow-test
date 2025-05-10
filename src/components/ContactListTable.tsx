@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useState} from 'react';
+import { useState} from 'react';
 import { Id } from '../../convex/_generated/dataModel';
-import { useNavigate, Link } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 import {Table, TableHeader, TableColumn, TableBody, TableRow, 
     TableCell, Button, Alert, Input} from "@heroui/react";
 import { useQuery } from 'convex/react';
