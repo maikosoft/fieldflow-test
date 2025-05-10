@@ -14,11 +14,16 @@
   },
   "dependencies": {
     "@convex-dev/auth": "^0.0.81",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@heroui/react": "^2.8.0-beta.4",
     "@tanstack/react-router": "^1.120.0",
     "@tanstack/react-router-devtools": "^1.120.0",
     "convex": "^1.23.0",
     "framer-motion": "^12.10.0",
+    "moment": "^2.30.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

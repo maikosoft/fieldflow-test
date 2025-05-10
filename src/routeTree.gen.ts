@@ -12,6 +12,9 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as OrgsOrgIdImport } from './routes/orgs.$orgId'
+import { Route as OrgsOrgIdAdminImport } from './routes/orgs_.$orgId.admin'
+import { Route as OrgsOrgIdContactsContactIdImport } from './routes/orgs_.$orgId.contacts.$contactId'
 
 // Create/Update Routes
 
@@ -20,6 +23,26 @@ const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const OrgsOrgIdRoute = OrgsOrgIdImport.update({
+  id: '/orgs/$orgId',
+  path: '/orgs/$orgId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const OrgsOrgIdAdminRoute = OrgsOrgIdAdminImport.update({
+  id: '/orgs_/$orgId/admin',
+  path: '/orgs/$orgId/admin',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const OrgsOrgIdContactsContactIdRoute = OrgsOrgIdContactsContactIdImport.update(
+  {
+    id: '/orgs_/$orgId/contacts/$contactId',
+    path: '/orgs/$orgId/contacts/$contactId',
+    getParentRoute: () => rootRoute,
+  } as any,
+)
 
 // Populate the FileRoutesByPath interface
 
@@ -32,6 +55,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/orgs/$orgId': {
+      id: '/orgs/$orgId'
+      path: '/orgs/$orgId'
+      fullPath: '/orgs/$orgId'
+      preLoaderRoute: typeof OrgsOrgIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/orgs_/$orgId/admin': {
+      id: '/orgs_/$orgId/admin'
+      path: '/orgs/$orgId/admin'
+      fullPath: '/orgs/$orgId/admin'
+      preLoaderRoute: typeof OrgsOrgIdAdminImport
+      parentRoute: typeof rootRoute
+    }
+    '/orgs_/$orgId/contacts/$contactId': {
+      id: '/orgs_/$orgId/contacts/$contactId'
+      path: '/orgs/$orgId/contacts/$contactId'
+      fullPath: '/orgs/$orgId/contacts/$contactId'
+      preLoaderRoute: typeof OrgsOrgIdContactsContactIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +83,60 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/orgs/$orgId': typeof OrgsOrgIdRoute
+  '/orgs/$orgId/admin': typeof OrgsOrgIdAdminRoute
+  '/orgs/$orgId/contacts/$contactId': typeof OrgsOrgIdContactsContactIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/orgs/$orgId': typeof OrgsOrgIdRoute
+  '/orgs/$orgId/admin': typeof OrgsOrgIdAdminRoute
+  '/orgs/$orgId/contacts/$contactId': typeof OrgsOrgIdContactsContactIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/orgs/$orgId': typeof OrgsOrgIdRoute
+  '/orgs_/$orgId/admin': typeof OrgsOrgIdAdminRoute
+  '/orgs_/$orgId/contacts/$contactId': typeof OrgsOrgIdContactsContactIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/orgs/$orgId'
+    | '/orgs/$orgId/admin'
+    | '/orgs/$orgId/contacts/$contactId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/orgs/$orgId'
+    | '/orgs/$orgId/admin'
+    | '/orgs/$orgId/contacts/$contactId'
+  id:
+    | '__root__'
+    | '/'
+    | '/orgs/$orgId'
+    | '/orgs_/$orgId/admin'
+    | '/orgs_/$orgId/contacts/$contactId'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OrgsOrgIdRoute: typeof OrgsOrgIdRoute
+  OrgsOrgIdAdminRoute: typeof OrgsOrgIdAdminRoute
+  OrgsOrgIdContactsContactIdRoute: typeof OrgsOrgIdContactsContactIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OrgsOrgIdRoute: OrgsOrgIdRoute,
+  OrgsOrgIdAdminRoute: OrgsOrgIdAdminRoute,
+  OrgsOrgIdContactsContactIdRoute: OrgsOrgIdContactsContactIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +149,23 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/orgs/$orgId",
+        "/orgs_/$orgId/admin",
+        "/orgs_/$orgId/contacts/$contactId"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/orgs/$orgId": {
+      "filePath": "orgs.$orgId.tsx"
+    },
+    "/orgs_/$orgId/admin": {
+      "filePath": "orgs_.$orgId.admin.tsx"
+    },
+    "/orgs_/$orgId/contacts/$contactId": {
+      "filePath": "orgs_.$orgId.contacts.$contactId.tsx"
     }
   }
 }

@@ -1,5 +1,21 @@
 # FieldFlow Test Project
 
+## My personal notes
+- I installed the next dependencies:
+  - Fontawesome (Icons)
+  - moment (Date formatting)
+
+I also added the search functionality to the contact list, and I added a loading state to the notes section.
+I also added a breadcrumbs component to the contact detail page
+
+I tryed to use the HeroUI components as much as possible.
+Maybe I could use tankstack react-query integration to manage loading states, but I tryed just with useQuery from convex backend.
+
+This test was a good opportunity to learn more about Convex, TanStack Router, HeroUI and Tailwind, I really liked the experience.
+
+I can't wait to start working with you guys!
+Thank you for this opportunity.
+
 ## Setup
 
 This is a [Convex](https://convex.dev/) project created with [`npm create convex`](https://www.npmjs.com/package/create-convex).

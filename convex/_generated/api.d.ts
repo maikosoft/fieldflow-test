@@ -14,7 +14,10 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as auth from "../auth.js";
+import type * as contacts from "../contacts.js";
 import type * as http from "../http.js";
+import type * as notes from "../notes.js";
+import type * as organizations from "../organizations.js";
 import type * as seed from "../seed.js";
 
 /**
@@ -27,7 +30,10 @@ import type * as seed from "../seed.js";
  */
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
+  contacts: typeof contacts;
   http: typeof http;
+  notes: typeof notes;
+  organizations: typeof organizations;
   seed: typeof seed;
 }>;
 export declare const api: FilterApi<
